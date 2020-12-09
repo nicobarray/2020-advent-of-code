@@ -1,10 +1,6 @@
-const fs = require("fs");
-const path = require("path");
+const lines = (await Deno.readTextFile("./input.txt")).split("\n");
 
-const buff = fs.readFileSync(path.join(__dirname, "input.txt")).toString();
-const lines = buff.split("\n");
-
-function firstStar() {
+export function firstStar() {
   let count = 0;
   for (let line of lines) {
     const [rule, password] = line.split(":").map((val) => val.trim());
@@ -26,7 +22,7 @@ function firstStar() {
   return count;
 }
 
-function secondStar() {
+export function secondStar() {
   let count = 0;
   for (let line of lines) {
     const [rule, password] = line.split(":").map((val) => val.trim());

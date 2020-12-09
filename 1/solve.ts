@@ -1,10 +1,8 @@
-const fs = require("fs");
-const path = require("path");
+const numbers = (await Deno.readTextFile("./input.txt")).split("\n").map(
+  Number,
+);
 
-const buff = fs.readFileSync(path.join(__dirname, "input.txt")).toString();
-const numbers = buff.split("\n").map((line) => Number(line));
-
-function firstStar() {
+export function firstStar() {
   for (let a of numbers) {
     for (let b of numbers) {
       if (a + b === 2020) {
@@ -14,7 +12,7 @@ function firstStar() {
   }
 }
 
-function secondStar() {
+export function secondStar() {
   for (let a of numbers) {
     for (let b of numbers) {
       for (let c of numbers) {

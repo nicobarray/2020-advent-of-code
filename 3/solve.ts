@@ -1,11 +1,7 @@
-const fs = require("fs");
-const path = require("path");
+const lines = (await Deno.readTextFile("./input.txt")).split("\n");
 
-const buff = fs.readFileSync(path.join(__dirname, "input.txt")).toString();
-const lines = buff.split("\n");
-
-function firstStar() {
-  function countTrees(x, y, treeCount) {
+export async function firstStar() {
+  function countTrees(x: number, y: number, treeCount: number): number {
     const square = lines[y][x];
 
     if (square === "#") {
@@ -25,8 +21,14 @@ function firstStar() {
   return countTrees(3, 1, 0);
 }
 
-function secondStar() {
-  function countTrees(x, y, deltaX, deltaY, treeCount) {
+export async function secondStar() {
+  function countTrees(
+    x: number,
+    y: number,
+    deltaX: number,
+    deltaY: number,
+    treeCount: number,
+  ): number {
     const square = lines[y][x];
 
     if (square === "#") {
@@ -39,7 +41,7 @@ function secondStar() {
         y + deltaY,
         deltaX,
         deltaY,
-        treeCount + 1
+        treeCount + 1,
       );
     }
 
@@ -51,7 +53,7 @@ function secondStar() {
       y + deltaY,
       deltaX,
       deltaY,
-      treeCount
+      treeCount,
     );
   }
 
@@ -66,5 +68,5 @@ function secondStar() {
     .reduce((mult, treeCount) => mult * treeCount, 1);
 }
 
-console.log(firstStar());
-console.log(secondStar());
+console.log(await firstStar());
+console.log(await secondStar());
