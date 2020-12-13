@@ -63,7 +63,7 @@ export async function firstStar() {
   return solve(Object.keys(rulesMap));
 }
 
-export async function secondStart() {
+export async function secondStar() {
   const file = await Deno.readTextFile("./input.txt");
 
   function tokenize(code: string) {
@@ -137,4 +137,4 @@ export async function secondStart() {
 }
 
 console.log(await firstStar());
-console.log(await secondStart());
+console.log(await secondStar());

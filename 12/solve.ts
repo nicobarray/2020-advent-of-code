@@ -1,4 +1,4 @@
-const file = await Deno.readTextFileSync("./input.txt");
+const file = await Deno.readTextFile("./input.txt");
 
 type Cardinals = "N" | "E" | "S" | "W";
 type Action = "F" | "R" | "L" | Cardinals;

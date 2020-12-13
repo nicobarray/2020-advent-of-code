@@ -5,7 +5,7 @@ function sortAdapters(adapters: string) {
   return [0, ...sortedAdapters, Math.max(...sortedAdapters) + 3];
 }
 
-export function firstStart(adapters: string) {
+export function firstStar(adapters: string) {
   const sortedAdapters = sortAdapters(adapters);
 
   function countDeltas(adapters: number[], delta: number): number {
@@ -54,5 +54,5 @@ export function secondStar(inputString: string) {
   return solution(sortedAdapters);
 }
 
-console.log(firstStart(input));
+console.log(firstStar(input));
 console.log(secondStar(input));
